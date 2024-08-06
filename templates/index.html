@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Firewall</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.1s ease;
+        }
+        .container {
+            max-width: 400px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            background-color: #343a40;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #495057;
+        }
+        .warning {
+            color: #dc3545;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Web Firewall</h1>
+        <form name="search" action="." method="post">
+            <div class="form-group">
+                <input type="text" name="email" class="form-control" placeholder="Enter email...">
+            </div>
+            <div class="form-group">
+                <input type="password" name="pass" class="form-control" placeholder="Enter password...">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-custom btn-block" value="Submit">
+            </div>
+        </form>
+        {% if email_prediction == 1 and password_prediction == 1 %}
+            <p class="warning">Please don't use malicious code in both fields.</p>
+        {% elif email_prediction == 1 %}
+            <p class="warning">Please don't use malicious code in 'email' field.</p>
+        {% elif password_prediction == 1 %}
+            <p class="warning">Please don't use malicious code in 'password' field.</p>
+        {% endif %}
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.body.addEventListener('mousemove', function(event) {
+            const x = event.clientX;
+            const y = event.clientY;
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            const red = Math.round((x / width) * 255);
+            const green = Math.round((y / height) * 255);
+            const blue = 150; // A constant value for a more sophisticated look
+
+            document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        });
+    </script>
+</body>
+</html>
