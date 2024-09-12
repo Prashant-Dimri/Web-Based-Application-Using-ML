@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Firewall</title>
-    <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -74,7 +73,6 @@
             <p class="warning">Please don't use malicious code in 'password' field.</p>
         {% endif %}
     </div>
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -87,7 +85,7 @@
 
             const red = Math.round((x / width) * 255);
             const green = Math.round((y / height) * 255);
-            const blue = 150; // A constant value for a more sophisticated look
+            const blue = 150; 
 
             document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         });
