@@ -18,7 +18,7 @@ model.fit(X, y)
 
 def predict_email(email):
     new_payload = email
-    new_payload_vectorized = vectorizer.fit_transform([new_payload])
+    new_payload_vectorized = vectorizer.transform([new_payload])
     prediction = model.predict(new_payload_vectorized)
     return prediction[0]
 
